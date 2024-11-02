@@ -12,10 +12,7 @@ export default function Index() {
           eta1="08.00-12.00"
           className="px-3 py-2 border-2 rounded-lg shadow-lg w-1/5"
         />
-        <MainSidebar
-          className="px-3 py-2 border-2 rounded-lg shadow-lg w-4/5 flex justify-between"
-          realTime="07.30 AM"
-        />
+        <MainSidebar realTime="07.30 AM" />
       </div>
     </>
   );
