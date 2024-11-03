@@ -8,11 +8,8 @@ export default function Index() {
       <h1>Jadwal Mata Kuliah</h1>
       <p>Jadwal Kelas, materi dan pengajar</p>
       <div className="flex gap-5">
-        <LeftSidebar
-          eta1="08.00-12.00"
-          className="px-3 py-2 border-2 rounded-lg shadow-lg w-1/5"
-        />
-        <MainSidebar realTime="07.30 AM" />
+        <LeftSidebar className="px-3 py-2 border-2 rounded-lg shadow-lg w-1/5" />
+        <MainSidebar />
       </div>
     </>
   );

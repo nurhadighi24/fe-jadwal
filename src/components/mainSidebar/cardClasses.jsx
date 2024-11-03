@@ -6,20 +6,31 @@ export default function CardClasses({
   materis,
   pengajars,
   ruangans,
+  day,
+  color,
 }) {
   return (
-    <div>
-      <div className="border-2 rounded-xl bg-[#FEEEFB] px-3 py-2">
-        <div className="flex">
-          <p>{timeFrom}-</p>
-          <p>{timeUntil}</p>
+    <>
+      <div>
+        <p className="text-center">{day}</p>
+        <div
+          className="border-2 rounded-xl px-3 py-2"
+          style={{ backgroundColor: color }}
+        >
+          <div className="flex">
+            <p>{timeFrom}-</p>
+            <p>{timeUntil}</p>
+          </div>
+          <p className="font-extrabold text-xl">{materis}</p>
+          <p className="">{pengajars}</p>
         </div>
-        <p className="font-extrabold text-xl">{materis}</p>
-        <p className="">{pengajars}</p>
+        <div
+          className="border-2 rounded-xl px-3 py-2"
+          style={{ backgroundColor: color }}
+        >
+          <a href="">{ruangans}</a>
+        </div>
       </div>
-      <div className="border-2 rounded-xl bg-[#FEEEFB] px-3 py-2">
-        <a href="">{ruangans}</a>
-      </div>
-    </div>
+    </>
   );
 }
