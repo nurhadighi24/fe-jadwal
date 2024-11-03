@@ -1,37 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Calendar } from "../ui/calendar";
 import CardCar from "./cardCar";
 import Location from "./location";
+import { getTransportsList } from "@/utils/api/transports";
+import { setAxiosConfig } from "@/utils/axiosWithConfig";
 
 export default function LeftSidebar({ eta1, className }) {
+  const [transports, setTransports] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  async function fetchData() {
+    try {
+      setAxiosConfig("https://grandprize-admin.my.id");
+      const resultTransports = await getTransportsList();
+      setTransports(resultTransports.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className={className}>
       <Calendar />
       <p>Rute Transportasi Penjemputan</p>
-      {/* <CardCar /> */}
+
       <div>
-        {/* <p>{eta1}</p> */}
-        <Location
-          className=" bg-[#FF6B18] px-5 py-4 rounded-xl my-3 text-white"
-          time="07.00 WIB"
-          angkatans="Angkatan 23"
-          location="Asrama 1 - Masjid Istiqlal"
-          transports="Mobil 1"
-        />
-        <Location
-          className=" bg-[#FF6B18] px-5 py-3 rounded-xl my-3 text-white"
-          time="07.00 WIB"
-          angkatans="Angkatan 23"
-          location="Asrama 1 - Masjid Istiqlal"
-          transports="Mobil 1"
-        />
-        <Location
-          className=" bg-[#FF6B18] px-5 py-3 rounded-xl my-3 text-white"
-          time="07.00 WIB"
-          angkatans="Angkatan 23"
-          location="Asrama 1 - Masjid Istiqlal"
-          transports="Mobil 1"
-        />
+        {transports.map((transport) => (
+          <div key={transport.id}>
+            <Location
+              className=" bg-[#FF6B18] px-5 py-4 rounded-xl my-3 text-white"
+              time={`${transport.waktu_penjemputan.slice(0, 5)} WIB`}
+              angkatans={`Angkatan ${transport.author.angkatan}`}
+              location={transport.lokasi}
+              transports={transport.kendaraan}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
