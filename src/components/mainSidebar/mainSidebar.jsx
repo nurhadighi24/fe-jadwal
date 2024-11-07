@@ -44,23 +44,23 @@ export default function MainSidebar({ classNameNav }) {
 
   return (
     <div className="border-2 w-4/5">
-      <div className="flex justify-between px-3 py-3 ">
+      <div className="grid grid-cols-3 px-3 py-3 ">
         <div>
           <p>Jadwal Mata Kuliah</p>
           <p>Hari ini</p>
-          <div className="flex">
+          <div className="grid grid-cols-3 gap-3">
             {matkuls.map((matkul) => (
-              <div key={matkul.id}>
-                <CardMateri matkuls={matkul.name} />
+              <div key={matkul.id} className="">
+                <CardMateri matkuls={matkul.name} color={matkul.color} />
               </div>
             ))}
           </div>
         </div>
         <div className="py-10">
-          <h1 className="text-5xl font-bold">{realTime}</h1>
+          <h1 className="text-5xl font-bold text-center">{realTime}</h1>
         </div>
         <div>
-          <img src="/logo-pkumi.png" alt="logo" className="w-64" />
+          <img src="/logo-pkumi.png" alt="logo" className="w-64 m-auto" />
         </div>
       </div>
       <div className="grid grid-cols-5 gap-3">

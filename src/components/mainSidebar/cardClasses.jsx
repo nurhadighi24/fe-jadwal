@@ -9,10 +9,14 @@ export default function CardClasses({
   day,
   color,
 }) {
+  // Check if ruangans contains a URL pattern
+  const isLink =
+    ruangans.startsWith("http://") || ruangans.startsWith("https://");
+
   return (
     <>
       <div>
-        <p className="text-center">{day}</p>
+        <p className="text-center font-extrabold text-2xl">{day}</p>
         <div
           className="border-2 rounded-xl px-3 py-2"
           style={{ backgroundColor: color }}
@@ -28,7 +32,18 @@ export default function CardClasses({
           className="border-2 rounded-xl px-3 py-2"
           style={{ backgroundColor: color }}
         >
-          <a href="">{ruangans}</a>
+          {isLink ? (
+            <a
+              href={ruangans}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-300 text-blue-100"
+            >
+              Link Zoom
+            </a>
+          ) : (
+            <p>{ruangans}</p>
+          )}
         </div>
       </div>
     </>
