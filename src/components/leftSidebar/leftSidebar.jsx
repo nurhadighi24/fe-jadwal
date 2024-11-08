@@ -24,7 +24,9 @@ export default function LeftSidebar({ eta1, className }) {
 
   return (
     <div className={className}>
-      <Calendar />
+      <div className="flex justify-center items-center my-4">
+        <Calendar />
+      </div>
       <p>Rute Transportasi Penjemputan</p>
 
       <div>
