@@ -12,7 +12,7 @@ export default function Index() {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <div className="flex flex-col md:flex-row h-screen">
+    <div className="flex flex-col md:flex-row h-screen mx-0 md:mx-5">
       {/* Header with Hamburger Menu (Only on small screens) */}
       <div className="flex items-center justify-between p-4 border-b md:hidden">
         <FaBars size={24} className="cursor-pointer" onClick={toggleMenu} />
@@ -21,8 +21,10 @@ export default function Index() {
 
       {/* Main Content for Desktop */}
       <div className="hidden md:block w-full">
-        <h1>Jadwal Mata Kuliah</h1>
-        <p>Jadwal Kelas, materi, dan pengajar</p>
+        <div className="my-5">
+          <h1>Jadwal Mata Kuliah</h1>
+          <p>Jadwal Kelas, materi, dan pengajar</p>
+        </div>
         <div className="flex gap-5">
           <LeftSidebar className="px-3 py-2 border-2 rounded-lg shadow-lg w-1/5" />
           <MainSidebar className="flex-1" />
